@@ -25,7 +25,7 @@ const Projects = () => {
       previousId: number
       nextId: number
     }> => {
-      const response = await fetch(`/api/projects?cursor=${pageParam}`)
+      const response = await fetch(`http://localhost:3000/api/projects?cursor=${pageParam}`)
       return await response.json()
     },
     initialPageParam: 0,
