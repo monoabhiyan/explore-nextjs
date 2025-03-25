@@ -1,16 +1,15 @@
-import {isServer, queryOptions} from "@tanstack/react-query";
+import {queryOptions} from "@tanstack/react-query";
+import axios from 'axios';
 
 export const usersQueryOptions = queryOptions({
   queryKey: ['users'],
   queryFn: async () => {
-    if (!isServer) {
-      return ''
-    }
-    const path = 'http://localhost:3000/api/users'
-    return await (
-      await fetch(path, {
-        cache: 'no-store'
-      })
-    ).json()
-  }
+    const path = '/api/users';
+    const response = await axios.get(path, {
+      headers: {
+        'Cache-Control': 'no-cache'
+      }
+    });
+    return response.data
+  },
 })

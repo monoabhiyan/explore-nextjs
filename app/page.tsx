@@ -1,12 +1,6 @@
-import UsersCard from "@/components/users-card";
-import {Suspense} from "react";
+import Home from "@/components/home";
 
-export default function Home() {
-  return (
-    <div>
-      <Suspense fallback={<div>loading...</div>}>
-        <UsersCard/>
-      </Suspense>
-    </div>
-  );
+export default function HomePage() {
+  return <Home/>
 }
+
