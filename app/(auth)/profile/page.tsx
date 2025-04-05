@@ -5,7 +5,8 @@ import axios from "axios";
 
 import {redirect} from "next/navigation";
 import {getServerSession} from "next-auth";
-import {authOptions} from "@/app/api/auth/[...nextauth]/route";
+import ProfileForm from "@/components/profile-form";
+import {authOptions} from "@/lib/nextAuth";
 
 const ProfilePage = async () => {
   const session = await getServerSession(authOptions);
@@ -19,6 +20,7 @@ const ProfilePage = async () => {
     }
   });
 
+
   return (
     <div>
       <p>Profile of user:</p>
@@ -27,6 +29,7 @@ const ProfilePage = async () => {
           JSON.stringify(data.data, null, 4)
         }
       </pre>
+      <ProfileForm user={data.data}/>
     </div>
   );
 };
