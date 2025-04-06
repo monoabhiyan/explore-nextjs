@@ -6,7 +6,7 @@ import {useSearchParams} from 'next/navigation'
 const SignInForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get('callbackUrl') || ''
+  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
 
   async function $signIn(formData: FormData) {
     try {

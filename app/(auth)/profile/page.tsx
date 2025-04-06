@@ -31,7 +31,7 @@ const ProfilePage = async () => {
       </pre>
       <ProfileForm user={data.data}/>
     </div>
-  );
+  )
 };
 
 export default ProfilePage;
